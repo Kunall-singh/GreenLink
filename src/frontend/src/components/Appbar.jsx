@@ -1,26 +1,28 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './AppBar.css';
 
 const AppBar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light mb-4" style={{ borderRadius: '20px', border: '2px solid skyblue', marginTop: '20px' }}>
-      <div className="container-fluid justify-content-center">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light custom-navbar">
+      <div className="container-fluid">
+        <Link className="navbar-brand" to="/">GreenLink</Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse justify-content-center" id="navbarNav">
-          <ul className="navbar-nav">
+        <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul className="navbar-nav nav-container">
             <li className="nav-item">
-              <Link className="nav-link" to="/" style={{ border: '2px solid skyblue', borderRadius: '15px', padding: '5px 10px', margin: '5px', backgroundColor: '#f0f8ff' }}>Dashboard</Link>
+              <Link className="nav-link" to="/">Home</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/emissions-scenario" style={{ border: '2px solid skyblue', borderRadius: '15px', padding: '5px 10px', margin: '5px', backgroundColor: '#f0f8ff' }}>Emissions & Scenario</Link>
+              <Link className="nav-link" to="/emissions">Emissions Tracker</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/stakeholder-marketplace" style={{ border: '2px solid skyblue', borderRadius: '15px', padding: '5px 10px', margin: '5px', backgroundColor: '#f0f8ff' }}>Stakeholder & Marketplace</Link>
+              <Link className="nav-link" to="/marketplace">Marketplace</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/targets-reports" style={{ border: '2px solid skyblue', borderRadius: '15px', padding: '5px 10px', margin: '5px', backgroundColor: '#f0f8ff' }}>Targets & Reports</Link>
+              <Link className="nav-link active" to="/reports">Reports</Link>
             </li>
           </ul>
         </div>
