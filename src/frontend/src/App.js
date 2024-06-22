@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import AppBar from './components/Appbar';
 import DashboardPage from './components/Dashboard';
 import EmissionsAndScenarioPage from './components/Emissions';
 import StakeholderAndMarketplacePage from './components/StakeHolder';
@@ -10,6 +11,7 @@ function App() {
   return (
     <Router>
       <div className="App">
+      <AppBar />
         <Routes>
           <Route path="/" element={<DashboardPage />} />
           <Route path="/emissions" element={<EmissionsAndScenarioPage />} />
