@@ -17,7 +17,7 @@ function App() {
       <AppBar />
         <Routes>
           <Route path="/" element={<DashboardPage />} />
-          <Route path="/bot" element={<EmissionsAndScenarioPage />} />
+          <Route path="/emissions" element={<EmissionsAndScenarioPage />} />
           <Route path="/marketplace" element={<StakeholderAndMarketplacePage />} />
           <Route path="/reports" element={<TargetsAndReportsPage />} />
           <Route path="/upload" element={<FileUpload />} />
