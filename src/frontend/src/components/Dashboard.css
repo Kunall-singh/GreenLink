@@ -68,7 +68,7 @@ body {
   
   /* Accessibility Text Styles */
   .accessibility-text {
-    margin-top: -40px; /* Space below the text */
+    margin-top: 200px; /* Space below the text */
     text-align: center; /* Center the text */
     font-size: 2.5rem; /* Font size for the text */
     color: #ffffff; /* White text color */
@@ -113,7 +113,7 @@ body {
   
   .content-image {
     width: 100%;
-    height: 280px; /* Set a fixed height for images */
+    height: 250px; /* Set a fixed height for images */
     object-fit: cover;
     margin-bottom: 10px;
     border-radius: 8px;
@@ -121,7 +121,7 @@ body {
   
   .content-description {
     color: #ffffff;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     text-align: center;
   }
   

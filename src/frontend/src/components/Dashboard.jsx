@@ -1,6 +1,7 @@
 import React from 'react';
 import './Dashboard.css';
 import News from './News';
+
 const Dashboard = () => {
   return (
     <div className="dashboard-outer-container">
