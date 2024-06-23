@@ -34,7 +34,7 @@ const initialProducts = [
       description: "Eco-friendly materials for sustainable construction.",
       rating: 4.6,
       provider: "EcoBuild Inc.",
-      contact: "contact@ecobuild.com",
+      contactDetails: "contact@ecobuild.com | Phone: (123) 555-0100",
       impact: "Reduces carbon footprint by 30%."
   },
   {
@@ -42,7 +42,7 @@ const initialProducts = [
       description: "Advanced systems for reducing water consumption.",
       rating: 4.9,
       provider: "WaterSaver Tech",
-      contact: "contact@watersaver.com",
+      contactDetails: "contact@watersaver.com | Phone: (123) 555-0300",
       impact: "Saves up to 50% of water usage."
   },
   {
@@ -50,7 +50,7 @@ const initialProducts = [
       description: "High-efficiency EV charging solutions.",
       rating: 4.7,
       provider: "ChargeUp Solutions",
-      contact: "contact@chargeup.com",
+      contactDetails: "contact@chargeup.com | Phone: (123) 555-0400",
       impact: "Supports the transition to electric vehicles, reducing emissions by 60%."
   },
   {
@@ -58,7 +58,7 @@ const initialProducts = [
       description: "Clothing made from eco-friendly and recycled materials.",
       rating: 4.5,
       provider: "EcoWear Fashion",
-      contact: "contact@ecowear.com",
+      contactDetails: "contact@ecowear.com | Phone: (123) 555-0500",
       impact: "Reduces waste and promotes sustainable fashion."
   },
   {
@@ -66,7 +66,7 @@ const initialProducts = [
       description: "Solutions for composting and reducing organic waste.",
       rating: 4.8,
       provider: "GreenWaste Management",
-      contact: "contact@greenwaste.com",
+      contactDetails: "contact@greenwaste.com | Phone: (123) 555-0600",
       impact: "Reduces landfill waste by 40%."
   },
   {
@@ -74,7 +74,7 @@ const initialProducts = [
       description: "Expert consulting services for implementing renewable energy solutions.",
       rating: 4.9,
       provider: "Renewable Energy Experts",
-      contact: "contact@renewableexperts.com",
+      contactDetails: "contact@renewableexperts.com | Phone: (123) 555-0700",
       impact: "Provides strategic planning for reducing carbon emissions."
   },
   {
@@ -82,7 +82,7 @@ const initialProducts = [
       description: "Advanced systems for monitoring and improving air quality.",
       rating: 4.6,
       provider: "AirCheck Solutions",
-      contact: "contact@aircheck.com",
+      contactDetails: "contact@aircheck.com | Phone: (123) 555-0700",
       impact: "Helps reduce air pollution and improve health."
   }
 ];
