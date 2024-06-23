@@ -1,0 +1,63 @@
+:root {
+    --primary-color: #004d40; /* Deep teal */
+    --secondary-color: #26a69a; /* Lighter teal */
+    --accent-color: #ffab40; /* Amber */
+    --background-color: #023D54; /* Very light teal */
+    --text-color: #ffffff; /* White */
+    --button-color: #00897b; /* Teal */
+    --button-hover-color: #26a69a; /* Lighter teal */
+    --button-danger: #f44336; /* Red for download */
+    --button-safe: #4caf50; /* Green for preview */
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Arial', sans-serif;
+}
+
+.reports-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+}
+
+.search-bar {
+    width: 100%;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.report-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: var(--secondary-color);
+    border-radius: 5px;
+}
+
+button {
+    padding: 5px 15px;
+    border: none;
+    border-radius: 5px;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.download-button {
+    background-color: var(--button-danger);
+}
+
+.preview-button {
+    background-color: var(--button-safe);
+}
+
+button:hover {
+    opacity: 0.8;
+}

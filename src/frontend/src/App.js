@@ -4,7 +4,7 @@ import AppBar from './components/Appbar';
 import DashboardPage from './components/Dashboard';
 import EmissionsAndScenarioPage from './components/Emissions';
 import StakeholderAndMarketplacePage from './components/Marketplace.jsx';
-import TargetsAndReportsPage from './components/Targets';
+import TargetsAndReportsPage from './components/Reports.js';
 import FileUpload from './components/FileUpload';
 import Home from './components/Home.js';
 
