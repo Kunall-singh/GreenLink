@@ -1,0 +1,20 @@
+.color-codes {
+    display: flex;
+    justify-content: center; /* Align items in a row */
+    padding: 10px; /* Space around the content */
+    background: #023D54; /* Light background for visibility */
+    border-radius: 8px; /* Rounded corners */
+    margin: 10px 0; /* Space above and below the color code bar */
+}
+
+.color-codes > div {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    margin: 0 20px; /* Space between each color code block */
+}
+
+.color-codes > div > div {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px; /* Space between the color block and the label */
+}

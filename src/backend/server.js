@@ -11,7 +11,6 @@ const port = process.env.PORT || 5001;
 
 app.use(bodyParser.json());
 app.use(cors());
-app.use('/reports', express.static(path.join(__dirname, 'uploads')));
 
 const averageCarbonFootprintMediumCompany = 150000; // Placeholder value
 
