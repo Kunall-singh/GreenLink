@@ -1,12 +1,13 @@
+/* News.css */
 .App {
     text-align: center;
-    font-family: Arial, sans-serif;
+    background-color: #03506E; /* Background color */
+    color: #fff; /* Text color for better contrast */
+    padding: 20px;
   }
   
   h1 {
-    margin: 20px 0;
-    font-size: 2em;
-    color: #f4f4f4;
+    margin-bottom: 20px;
   }
   
   .marquee {
@@ -14,50 +15,51 @@
     overflow: hidden;
     white-space: nowrap;
     box-sizing: border-box;
-    margin-bottom: 40px;
+    margin-bottom: 40px; /* Added margin to prevent overlapping */
   }
   
   .news-cards {
-    display: inline-flex;
-    animation: marquee 60s linear infinite;
+    display: inline-block;
+    padding-left: 100%;
+    animation: marquee 60s linear infinite; /* Slower animation */
   }
   
   .news-card {
-    background: #023D54;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 0 15px;
+    display: inline-block;
+    width: 300px;
+    margin-right: 20px;
+    vertical-align: top;
+    background-color: #03506E; /* Changed card background color */
+    border: 1px solid #ddd;
+    border-radius: 5px;
     overflow: hidden;
-    width: 500px;
-    flex-shrink: 0;
     text-align: left;
-    color: #ffffff;
+    padding: 10px;
+    color: #fff; /* Text color inside cards */
   }
   
-  .news-card img {
+  .news-card h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .content-image {
     width: 100%;
-    height: 300px;
+    height: 150px;
     object-fit: cover;
   }
   
-  .news-card p {
-    font-size: 1.2em;
-    margin: 20px;
+  .content-description {
+    font-size: 16px;
     line-height: 1.4;
-    height: auto;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 5; /* Show 5 lines before truncating */
-    -webkit-box-orient: vertical;
-    text-overflow: ellipsis;
   }
   
   @keyframes marquee {
     0% {
-      transform: translateX(0%);
+      transform: translateX(0);
     }
     100% {
-      transform: translateX(-50%);
+      transform: translateX(-100%);
     }
   }
   

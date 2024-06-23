@@ -1,33 +1,34 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 import './News.css';
 
 function News() {
-  const [news, setNews] = useState([]);
-
-  useEffect(() => {
-    fetchNews();
-  }, []);
-
-  const fetchNews = async () => {
-    try {
-      const response = await axios.get('http://localhost:5001/api/news');
-      setNews(response.data.articles);
-    } catch (error) {
-      console.error('Error fetching news:', error);
+  const news = [
+    {
+      title: 'Effective Emissions Management',
+      description: 'Gain precise insights and control over Scope 3 emissions, enabling proactive reduction strategies.',
+      image: '/ESG.jpeg'
+    },
+    {
+      title: 'Data-Driven Decisions',
+      description: 'Utilize advanced analytics to make informed decisions that enhance sustainability performance.',
+      image: '/ESG1.jpg'
+    },
+    {
+      title: 'Stakeholder Engagement',
+      description: 'Foster strong relationships with suppliers and stakeholders through transparent reporting and collaborative tools.',
+      image: '/ESG2.jpg'
+    },
+    {
+      title: 'Renewable Energy Adoption',
+      description: 'Companies are increasingly investing in renewable energy sources to reduce their carbon footprint and promote sustainability.',
+      image: '/ESG3.webp'
+    },
+    {
+      title: 'Sustainable Supply Chains',
+      description: 'Efforts to make supply chains more sustainable are gaining traction, with companies focusing on reducing waste and improving efficiency.',
+      image: '/ESG4.jpeg'
     }
-  };
-
-  const getRandomImage = () => {
-    const images = [
-      '/public/ESG.jpeg',
-      '/public/ESG1.jpeg',
-      '/public/ESG2.jpeg',
-      '/public/ESG3.jpeg',
-      '/public/ESG4.jpeg',
-    ];
-    return images[Math.floor(Math.random() * images.length)];
-  };
+  ];
 
   return (
     <div className="App">
@@ -36,19 +37,20 @@ function News() {
         <div className="news-cards">
           {news.map((article, index) => (
             <div key={index} className="news-card">
-              <img src={getRandomImage()} alt="news" />
-              <p>{article.description}</p>
+              <h2>{article.title}</h2>
+              <img src={article.image} alt={article.title} className="content-image" />
+              <p className="content-description">{article.description}</p>
             </div>
           ))}
           {news.map((article, index) => (
             <div key={index + news.length} className="news-card">
-              <img src={getRandomImage()} alt="news" />
-              <p>{article.description}</p>
+              <h2>{article.title}</h2>
+              <img src={article.image} alt={article.title} className="content-image" />
+              <p className="content-description">{article.description}</p>
             </div>
           ))}
         </div>
       </div>
-      {/* Other components */}
     </div>
   );
 }
