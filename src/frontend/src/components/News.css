@@ -1,0 +1,63 @@
+.App {
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  h1 {
+    margin: 20px 0;
+    font-size: 2em;
+    color: #f4f4f4;
+  }
+  
+  .marquee {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    margin-bottom: 40px;
+  }
+  
+  .news-cards {
+    display: inline-flex;
+    animation: marquee 60s linear infinite;
+  }
+  
+  .news-card {
+    background: #023D54;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 15px;
+    overflow: hidden;
+    width: 500px;
+    flex-shrink: 0;
+    text-align: left;
+    color: #ffffff;
+  }
+  
+  .news-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+  
+  .news-card p {
+    font-size: 1.2em;
+    margin: 20px;
+    line-height: 1.4;
+    height: auto;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 5; /* Show 5 lines before truncating */
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+  }
+  
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  

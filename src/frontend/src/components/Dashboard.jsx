@@ -1,6 +1,6 @@
 import React from 'react';
 import './Dashboard.css';
-
+import News from './News';
 const Dashboard = () => {
   return (
     <div className="dashboard-outer-container">
@@ -18,6 +18,7 @@ const Dashboard = () => {
             <img src="/dashboardImage.png" alt="Dashboard Illustration" className="header-image" />
           </div>
         </div>
+        <News />
         <div className="accessibility-text">
           <p>Your carbon footprint is now more accessible!</p>
         </div>

@@ -11,7 +11,6 @@ const port = process.env.PORT || 5001;
 
 app.use(bodyParser.json());
 app.use(cors());
-app.use('/reports', express.static(path.join(__dirname, 'uploads')));
 
 const averageCarbonFootprintMediumCompany = 150000; // Placeholder value
 
@@ -34,7 +33,6 @@ const analyzeFile = async (filePath) => {
             const nitrousOxideEmissions = parseFloat(item["Unit Nitrous Oxide (N2O) emissions"]) || 0;
             const biogenicCo2Emissions = parseFloat(item["Unit Biogenic CO2 emissions (metric tons)"]) || 0;
 
-            // Assuming you want to calculate the CO2 equivalent emissions
             const methaneCO2Equivalent = methaneEmissions * 25; // 25 times more potent than CO2
             const nitrousOxideCO2Equivalent = nitrousOxideEmissions * 298; // 298 times more potent than CO2
 
@@ -70,8 +68,6 @@ const analyzeFile = async (filePath) => {
             }
           });
 
-          console.log('API response:', response.data);
-
           const content = response.data.choices[0]?.message?.content;
           if (!content) {
             throw new Error('No content in API response');
@@ -96,12 +92,12 @@ const analyzeFile = async (filePath) => {
 
           resolve(result);
         } catch (error) {
-          console.error('Error analyzing file:', error);
+          console.error('Error analyzing file:', error.message);
           reject(error);
         }
       })
       .on('error', (error) => {
-        console.error('Error reading CSV file:', error);
+        console.error('Error reading CSV file:', error.message);
         reject(error);
       });
   });
@@ -121,13 +117,13 @@ app.post('/api/analyze-csv', async (req, res) => {
     const data = await analyzeFile(filePath);
     res.json(data);
   } catch (error) {
+    console.error('Error in /api/analyze-csv:', error.message);
     res.status(500).send('Error calculating carbon footprint score');
   }
 });
 
 app.post('/api/chat', async (req, res) => {
   const { message } = req.body;
-  const apiKey = process.env.OPENAI_API_KEY;
 
   try {
     if (!analyzedData) {
@@ -148,15 +144,39 @@ app.post('/api/chat', async (req, res) => {
       messages: [{ role: 'user', content: prompt }],
     }, {
       headers: {
-        'Authorization': `Bearer ${apiKey}`,
+        'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
         'Content-Type': 'application/json'
       }
     });
 
     res.json(response.data.choices[0].message);
   } catch (error) {
-    console.error(error);
+    console.error('Error in /api/chat:', error.message);
     res.status(500).send('Error communicating with ChatGPT API');
+  }
+});
+
+app.get('/api/news', async (req, res) => {
+  try {
+    const prompt = "Generate 5 latest short news articles about sustainability and ESG (Environmental, Social, and Governance). Each article should be around 3-4 sentences long and provide a brief summary of the topic.";
+    const response = await axios.post('https://api.openai.com/v1/chat/completions', {
+      model: 'gpt-4',
+      messages: [{ role: 'user', content: prompt }],
+    }, {
+      headers: {
+        'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
+        'Content-Type': 'application/json'
+      }
+    });
+
+    const articles = response.data.choices[0].message.content.split("\n\n").map((article, index) => ({
+      description: article
+    }));
+
+    res.json({ articles });
+  } catch (error) {
+    console.error('Error fetching news:', error.message);
+    res.status(500).send('Error fetching news');
   }
 });
 
