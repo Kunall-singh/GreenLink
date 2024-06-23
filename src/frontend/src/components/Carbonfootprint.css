@@ -3,7 +3,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #023D54;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -13,19 +13,29 @@
   color: white;
 }
 
+.App-title {
+  color: #8BAD79;
+  margin-top: 20px; /* Add margin to the top */
+}
+
+.content {
+  width: 80%;
+  max-width: 1200px;
+}
+
 .cards-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 20px;
+  gap: 20px;
 }
 
 .card {
-  background-color: #ffffff;
-  color: #282c34;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  margin: 10px;
   padding: 20px;
   width: 250px;
   text-align: left;
@@ -37,4 +47,46 @@
 
 .card p {
   margin: 10px 0 0;
+}
+
+.score-container {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.speedometer {
+  position: relative;
+  display: inline-block;
+}
+
+.speedometer svg {
+  display: block;
+  margin: 0 auto;
+}
+
+.score-value {
+  position: absolute;
+  width: 100%;
+  top: 70%;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+
+.comparison-text {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+  }
+
+  .speedometer svg {
+    width: 100%;
+  }
 }
