@@ -23,24 +23,24 @@ const Dashboard = () => {
         </div>
         <div className="content-section">
           <div className="content-container">
-            <h2>Measure accurately</h2>
+            <h2>Effective Emissions Management</h2>
             <img src="/Card1.png" alt="Description 1" className="content-image" />
             <p className="content-description">
-              Measure your carbon footprint using state-of-the-art technology, allowing you to easily account for your 3 emissions scopes.
+            Gain precise insights and control over Scope 3 emissions, enabling proactive reduction strategies.
             </p>
           </div>
           <div className="content-container">
-            <h2>Monitor with ease</h2>
+            <h2>Data-Driven Decisions</h2>
             <img src="/Card2.png" alt="Description 2" className="content-image" />
             <p className="content-description">
-              Analyze your emissions, set your targets and achieve significant reductions with the help of our experts.
+            Utilize advanced analytics to make informed decisions that enhance sustainability performance.
             </p>
           </div>
           <div className="content-container">
-            <h2>Measure physical & monitary flows</h2>
+            <h2>Stakeholder Engagement</h2>
             <img src="/Card3.png" alt="Description 3" className="content-image" />
             <p className="content-description">
-              Monetary and physical approaches are complementary, and are essential to thoroughly assess your CO2 emissions.
+            Foster strong relationships with suppliers and stakeholders through transparent reporting and collaborative tools.
             </p>
           </div>
         </div>
