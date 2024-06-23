@@ -7,21 +7,36 @@
     color: #ffffff;
 }
 
+.home-container h1 {
+    color: #8BAD79; /* New color for the h1 element */
+    text-align: center; /* Optional: Center align the text */
+    font-size: 2.5rem; /* Optional: Set the font size */
+    margin-bottom: 20px; /* Optional: Add some margin below the h1 */
+  }
+
 .toggle-container {
     display: flex;
     justify-content: flex-start; /* Align to the left */
     margin-bottom: 20px;
+    justify-content: center;
 }
 
 .toggle-container button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: auto; /* Ensure the width is auto */
-}
+    background-color: #8BAD79; /* Set the background color of the button */
+    color: #ffffff; /* Set the text color of the button */
+    border: none; /* Remove the border */
+    padding: 10px 20px; /* Add padding to the button */
+    font-size: 1rem; /* Set the font size */
+    border-radius: 5px; /* Add rounded corners */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background-color 0.3s ease; /* Add transition for background color */
+    width: 200px;
+    justify-content: center;
+  }
+  
+  .toggle-container button:hover {
+    background-color: #7A9A6A; /* Change background color on hover */
+  }
 
 .charts-container {
     display: flex;
