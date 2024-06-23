@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import AppBar from './components/Appbar';
 import DashboardPage from './components/Dashboard';
 import EmissionsAndScenarioPage from './components/Emissions';
-import StakeholderAndMarketplacePage from './components/StakeHolder';
+import StakeholderAndMarketplacePage from './components/Marketplace.jsx';
 import TargetsAndReportsPage from './components/Targets';
 import FileUpload from './components/FileUpload';
 import Home from './components/Home.js';

@@ -5,10 +5,11 @@ import {
     Chart as ChartJS,
     ArcElement,
     Tooltip,
-    Legend
+    Legend,
+    Title
 } from 'chart.js';
 
-ChartJS.register(ArcElement, Tooltip, Legend);
+ChartJS.register(ArcElement, Tooltip, Legend, Title);
 
 const DoughnutChart = ({ data }) => {
     const chartData = {
@@ -23,6 +24,7 @@ const DoughnutChart = ({ data }) => {
 
     const options = {
         responsive: true,
+        maintainAspectRatio: false,
         plugins: {
             legend: {
                 position: 'top',
@@ -34,7 +36,11 @@ const DoughnutChart = ({ data }) => {
         },
     };
 
-    return <Doughnut data={chartData} options={options} />;
+    return (
+        <div className="chart-wrapper">
+            <Doughnut data={chartData} options={options} />
+        </div>
+    );
 };
 
 export default DoughnutChart;

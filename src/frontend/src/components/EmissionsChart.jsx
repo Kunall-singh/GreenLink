@@ -64,8 +64,8 @@ const EmissionsChart = ({ data, type }) => {
             }
         },
         responsive: true, // Make sure this is set to true
-        maintainAspectRatio: true, // Adjust this as needed to maintain aspect ratio
-        aspectRatio: 1.5, // You can define aspect ratio here (width/height)
+        maintainAspectRatio: false, // Adjust this as needed to maintain aspect ratio
+        aspectRatio: 2, // You can define aspect ratio here (width/height)
         plugins: {
             legend: {
                 position: 'top',
@@ -79,7 +79,11 @@ const EmissionsChart = ({ data, type }) => {
 
     const ChartComponent = type === 'line' ? Line : Bar;
 
-    return <ChartComponent data={chartData} options={options} />;
+    return (
+        <div className="chart-wrapper">
+            <ChartComponent data={chartData} options={options} />
+        </div>
+    );
 };
 
 export default EmissionsChart;

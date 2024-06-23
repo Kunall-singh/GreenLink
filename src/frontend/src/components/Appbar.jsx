@@ -15,7 +15,7 @@ const AppBar = () => {
         <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
           <ul className="navbar-nav nav-container">
             <li className="nav-item">
-              <Link className="nav-link" to="/">Home</Link>
+              <Link className="nav-link" to="/home">Home</Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/emissions">Emissions Tracker</Link>
