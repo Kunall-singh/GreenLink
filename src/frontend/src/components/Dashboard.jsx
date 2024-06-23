@@ -19,7 +19,7 @@ const Dashboard = () => {
           </div>
         </div>
         <div className="accessibility-text">
-          <p>Your carbon footprint is now more accessible.</p>
+          <p>Your carbon footprint is now more accessible!</p>
         </div>
         <div className="content-section">
           <div className="content-container">
