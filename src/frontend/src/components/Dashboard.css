@@ -101,7 +101,11 @@ body {
   
   .content-container h2 {
     color: #28a745; /* Dark green color for the headers */
-    margin-bottom: 10px; /* Space below the headers */
+    margin-bottom: 10px;
+    font-size: 1.6rem;
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide overflow text */
+    text-overflow: ellipsis; /* Add ellipsis for overflow text */
   }
   
   .content-image {
@@ -113,6 +117,44 @@ body {
   }
   
   .content-description {
+    color: #ffffff;
+    font-size: 1rem;
+    text-align: center;
+  }
+  
+  /* About Us Section Styles */
+  .about-us-section {
+    margin-top: 400px; /* Space above the About Us section */
+    text-align: center;
+  }
+  
+  .about-us-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between team members */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  }
+  
+  .team-member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent white background */
+    padding: 15px;
+    border-radius: 8px;
+    width: 200px; /* Set a fixed width for each team member */
+    margin-bottom: 20px; /* Space below each team member */
+  }
+  
+  .team-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border-radius: 8px;
+  }
+  
+  .team-description {
     color: #ffffff;
     font-size: 1rem;
     text-align: center;
@@ -172,6 +214,10 @@ body {
     }
   
     .content-container {
+      width: 100%; /* Full width on small screens */
+    }
+  
+    .team-member {
       width: 100%; /* Full width on small screens */
     }
   }
