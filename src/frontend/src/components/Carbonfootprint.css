@@ -85,6 +85,14 @@
   text-align: center;
 }
 
+.score-container h2{
+  color: #8BAD79;
+}
+
+.App h1{
+  color: #8BAD79;
+}
+
 .speedometer {
   position: relative;
   display: inline-block;
