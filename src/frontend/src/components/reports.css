@@ -6,8 +6,8 @@
     --text-color: #ffffff; /* White */
     --button-color: #00897b; /* Teal */
     --button-hover-color: #26a69a; /* Lighter teal */
-    --button-danger: #f44336; /* Red for download */
-    --button-safe: #4caf50; /* Green for preview */
+    --button-danger: #7A9A6A; /* Red for download */
+    --button-safe: #7A9A6A; /* Green for preview */
 }
 
 body {
@@ -22,6 +22,13 @@ body {
     padding: 20px;
     background-color: var(--primary-color);
     border-radius: 10px;
+}
+
+.reports-container h1 {
+    color: #8BAD79; /* New color for the h1 element */
+    text-align: center; /* Optional: Center align the text */
+    font-size: 2.5rem; /* Optional: Set the font size */
+    margin-bottom: 20px; /* Optional: Add some margin below the h1 */
 }
 
 .search-bar {
@@ -60,4 +67,19 @@ button {
 
 button:hover {
     opacity: 0.8;
+}
+
+.contract-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.contract-container h2 {
+    color: #8BAD79;
+    font-size: 2rem;
+    margin-bottom: 20px;
 }
