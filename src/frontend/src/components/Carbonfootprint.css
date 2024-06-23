@@ -21,32 +21,64 @@
 .content {
   width: 80%;
   max-width: 1200px;
+  margin: auto;
 }
 
 .cards-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+  justify-items: center;
+  margin-top: 20px;
+  position: relative;
 }
 
-.card {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
-  border-radius: 8px;
+.card-wrapper {
+  background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent dark background */
+  color: white;
+  border-radius: 50%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   padding: 20px;
-  width: 250px;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  position: relative;
+  z-index: 1;
+}
+
+.card-wrapper:nth-child(2) {
+  margin-top: -40px;
+  z-index: 2;
+}
+
+.card-wrapper:nth-child(3) {
+  margin-top: -80px;
+  z-index: 3;
+}
+
+.card-wrapper h2, .card-wrapper p {
+  margin-top: 0;
+  text-align: center;
+  color: white; /* Ensure text color is white */
+}
+
+.summary-container {
+  grid-column: 1 / -1;
+  background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent dark background */
+  color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  margin-top: 100px;
   text-align: left;
 }
 
-.card h2 {
-  margin-top: 0;
-}
-
-.card p {
-  margin: 10px 0 0;
+.summary-container .Card {
+  width: 100%;
+  text-align: center;
 }
 
 .score-container {
@@ -82,8 +114,20 @@
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-  .card {
+  .cards-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card-wrapper {
     width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .summary-container {
+    margin-top: 20px;
   }
 
   .speedometer svg {
