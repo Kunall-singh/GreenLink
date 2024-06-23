@@ -5,6 +5,7 @@ import DashboardPage from './components/Dashboard';
 import EmissionsAndScenarioPage from './components/Emissions';
 import StakeholderAndMarketplacePage from './components/StakeHolder';
 import TargetsAndReportsPage from './components/Targets';
+import FileUpload from './components/FileUpload';
 import './App.css';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path="/emissions" element={<EmissionsAndScenarioPage />} />
           <Route path="/marketplace" element={<StakeholderAndMarketplacePage />} />
           <Route path="/reports" element={<TargetsAndReportsPage />} />
+          <Route path="/upload" element={<FileUpload />} />
         </Routes>
       </div>
     </Router>
