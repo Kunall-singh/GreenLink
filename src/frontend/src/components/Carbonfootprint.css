@@ -21,59 +21,58 @@
 .content {
   width: 80%;
   max-width: 1200px;
-  margin: auto;
 }
 
 .cards-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  justify-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   margin-top: 20px;
-  position: relative;
+  gap: 20px;
 }
 
 .card-wrapper {
-  background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent dark background */
+  background-color: rgba(255, 255, 255, 0.1);
   color: white;
   border-radius: 50%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   padding: 20px;
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: left;
-  position: relative;
-  z-index: 1;
-}
-
-.card-wrapper:nth-child(2) {
-  margin-top: -40px;
-  z-index: 2;
-}
-
-.card-wrapper:nth-child(3) {
-  margin-top: -80px;
-  z-index: 3;
-}
-
-.card-wrapper h2, .card-wrapper p {
-  margin-top: 0;
   text-align: center;
-  color: white; /* Ensure text color is white */
+}
+
+.card-wrapper h2, .card-wrapper p, .card h2, .card p {
+  margin-top: 0;
+  color: white;
+  background: transparent;
+  font-size: 1.1rem; /* Adjust font size */
+  line-height: 1.2; /* Adjust line height */
+  padding: 0 10px; /* Adjust padding */
+}
+
+.card-wrapper h2, .card h2 {
+  font-weight: bold; /* Make titles bold */
+}
+
+.card {
+  background-color: transparent; /* Match the card-wrapper background color */
+  border-radius: 50%; /* Ensure the Card has the same border-radius */
+  border-color: transparent;
 }
 
 .summary-container {
   grid-column: 1 / -1;
-  background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent dark background */
-  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent dark background */
   border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   padding: 20px;
   margin-top: 100px;
-  text-align: left;
+  width: 100%; /* Increase the width of the summary container */
+  text-align: center;
 }
 
 .summary-container .Card {
@@ -109,13 +108,12 @@
 .comparison-text {
   margin-top: 20px;
   font-size: 1.2rem;
-  color: #ffffff;
+  color: white;
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
   .cards-container {
-    display: flex;
     flex-direction: column;
     align-items: center;
   }
