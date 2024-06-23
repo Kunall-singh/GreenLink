@@ -1,0 +1,13 @@
+/* src/components/home.css */
+.home-container {
+    max-width: 95%;
+    margin: auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.doughnut-chart-container {
+    margin-top: 40px;
+    max-width: 600px;
+    margin: auto;
+}
