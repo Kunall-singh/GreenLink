@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './marketplace.css';
 
-const products = [
+const initialProducts = [
     {
         id: 1,
         name: 'Eco-Friendly Packaging',
@@ -29,47 +29,118 @@ const products = [
         impact: 'Reduces carbon footprint by 20%',
         contactDetails: 'Email: support@brightfuture.com | Phone: (555) 123-4567',
     },
-    // Add more products as needed
+    {
+      name: "Green Building Materials",
+      description: "Eco-friendly materials for sustainable construction.",
+      rating: 4.6,
+      provider: "EcoBuild Inc.",
+      contact: "contact@ecobuild.com",
+      impact: "Reduces carbon footprint by 30%."
+  },
+  {
+      name: "Water Conservation Systems",
+      description: "Advanced systems for reducing water consumption.",
+      rating: 4.9,
+      provider: "WaterSaver Tech",
+      contact: "contact@watersaver.com",
+      impact: "Saves up to 50% of water usage."
+  },
+  {
+      name: "Electric Vehicle Charging Stations",
+      description: "High-efficiency EV charging solutions.",
+      rating: 4.7,
+      provider: "ChargeUp Solutions",
+      contact: "contact@chargeup.com",
+      impact: "Supports the transition to electric vehicles, reducing emissions by 60%."
+  },
+  {
+      name: "Sustainable Apparel",
+      description: "Clothing made from eco-friendly and recycled materials.",
+      rating: 4.5,
+      provider: "EcoWear Fashion",
+      contact: "contact@ecowear.com",
+      impact: "Reduces waste and promotes sustainable fashion."
+  },
+  {
+      name: "Organic Waste Management",
+      description: "Solutions for composting and reducing organic waste.",
+      rating: 4.8,
+      provider: "GreenWaste Management",
+      contact: "contact@greenwaste.com",
+      impact: "Reduces landfill waste by 40%."
+  },
+  {
+      name: "Renewable Energy Consulting",
+      description: "Expert consulting services for implementing renewable energy solutions.",
+      rating: 4.9,
+      provider: "Renewable Energy Experts",
+      contact: "contact@renewableexperts.com",
+      impact: "Provides strategic planning for reducing carbon emissions."
+  },
+  {
+      name: "Air Quality Monitoring Systems",
+      description: "Advanced systems for monitoring and improving air quality.",
+      rating: 4.6,
+      provider: "AirCheck Solutions",
+      contact: "contact@aircheck.com",
+      impact: "Helps reduce air pollution and improve health."
+  }
 ];
 
+
 const Marketplace = () => {
-    const [selectedProduct, setSelectedProduct] = useState(null);
+  const [products, setProducts] = useState(initialProducts);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
-    const handleContactClick = (product) => {
-        setSelectedProduct(product);
-    };
+  useEffect(() => {
+      const filteredProducts = initialProducts.filter(product =>
+          product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          product.description.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setProducts(filteredProducts);
+  }, [searchTerm]);
 
-    const handleClosePopup = () => {
-        setSelectedProduct(null);
-    };
+  const handleContactClick = product => {
+      setSelectedProduct(product);
+  };
 
-    return (
-        <div className="marketplace-container">
-            <h1>Marketplace for Sustainable Solutions</h1>
-            <input type="text" placeholder="Search for products or services..." className="search-input" />
-            <div className="products-grid">
-                {products.map(product => (
-                    <div key={product.id} className="product-card">
-                        <h2>{product.name}</h2>
-                        <p>{product.description}</p>
-                        <p className="rating">Rating: {product.rating} ★</p>
-                        <p>Provider: {product.provider}</p>
-                        <div className="info-button" title={product.impact}>i</div>
-                        <button onClick={() => handleContactClick(product)} className="contact-button">Contact Provider</button>
-                    </div>
-                ))}
-            </div>
-            {selectedProduct && (
-                <div className="popup">
-                    <div className="popup-content">
-                        <h2>{selectedProduct.name}</h2>
-                        <p>{selectedProduct.contactDetails}</p>
-                        <button onClick={handleClosePopup} className="close-button">Close</button>
-                    </div>
+  const handleClosePopup = () => {
+      setSelectedProduct(null);
+  };
+
+  return (
+    <div className="marketplace-container">
+        <h1>Marketplace for Sustainable Solutions</h1>
+        <input
+            type="text"
+            placeholder="Search for products or services..."
+            className="search-input"
+            onChange={(e) => setSearchTerm(e.target.value)}
+        />
+        <div className="products-grid">
+            {products.map(product => (
+                <div key={product.id} className="product-card">
+                    <h2>{product.name}</h2>
+                    <p>{product.description}</p>
+                    <p className="rating">Rating: {product.rating} ★</p>
+                    <p>Provider: {product.provider}</p>
+                    <div className="info-button" title={product.impact}>i</div>
+                    <button onClick={() => handleContactClick(product)} className="contact-button">Contact Provider</button>
                 </div>
-            )}
+            ))}
         </div>
-    );
+        {selectedProduct && (
+            <div className="popup">
+                <div className="popup-content">
+                    <h2>{selectedProduct.name}</h2>
+                    <p>{selectedProduct.contactDetails}</p>
+                    <button onClick={handleClosePopup} className="close-button">Close</button>
+                </div>
+            </div>
+        )}
+    </div>
+);
 };
 
 export default Marketplace;
