@@ -13,7 +13,7 @@ function FileUpload() {
     files.forEach(file => formData.append('files', file));
 
     try {
-      await fetch('http://localhost:3000/upload', {
+      await fetch('http://localhost:5001/upload', {
         method: 'POST',
         body: formData,
       });
