@@ -1,23 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import EmissionsChart from './EmissionsChart';
 import DoughnutChart from './DoughnutChart';
+import GridUsageChart from './GridUsageChart';
 import './home.css';
-import { fetchYearlyEmissionsData, fetchEmissionsBreakdown } from '../services/api'; // Ensure this path is correct based on your project structure
+import { fetchYearlyEmissionsData, fetchEmissionsBreakdown, fetchGridUsageData, fetchWaterUsageData } from '../services/api';
 
 function Home() {
     const [emissionsData, setEmissionsData] = useState([]);
     const [emissionsBreakdown, setEmissionsBreakdown] = useState([]);
-    const [chartType, setChartType] = useState('line'); // Toggle between 'line' and 'bar'
+    const [gridUsageData, setGridUsageData] = useState([]);
+    const [waterUsageData, setWaterUsageData] = useState([]);
+    const [chartType, setChartType] = useState('line');
 
     useEffect(() => {
         async function fetchData() {
-            const data = await fetchYearlyEmissionsData();
-            setEmissionsData(data);
-            const breakdownData = await fetchEmissionsBreakdown();
-            setEmissionsBreakdown(breakdownData);
+            const emissions = await fetchYearlyEmissionsData();
+            setEmissionsData(emissions);
+            const breakdown = await fetchEmissionsBreakdown();
+            setEmissionsBreakdown(breakdown);
+            const gridUsage = await fetchGridUsageData();
+            setGridUsageData(gridUsage);
+            const waterUsage = await fetchWaterUsageData();
+            setWaterUsageData(waterUsage);
         }
         fetchData();
     }, []);
+
 
     return (
         <div className="home-container">
@@ -35,6 +43,9 @@ function Home() {
                     Toggle Chart Type
                 </button>
             </div>
+            <div className="chart-wrapper">
+                    <GridUsageChart data={gridUsageData} />
+                </div>
             <div className="additional-info">
                 <div className="info-box">
                     <img src="/goals.png" alt="Company Goals" className="info-image" />

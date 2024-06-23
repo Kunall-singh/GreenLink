@@ -57,42 +57,51 @@ function Carbon() {
   const needleRotation = (scoreValue / 10) * 180 - 90; // Scale score to range -90 to 90
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1 className="App-title">Carbon Footprint Tracker</h1>
-        {data === null ? (
-          <div>Loading data...</div>
-        ) : data === 'Error' ? (
-          <div>Error loading data</div>
-        ) : (
-          <div className="content">
-            <div className="cards-container">
+      <div className="App">
+    <header className="App-header">
+      <h1 className="App-title">Carbon Footprint Tracker</h1>
+      {data === null ? (
+        <div>Loading data...</div>
+      ) : data === 'Error' ? (
+        <div>Error loading data</div>
+      ) : (
+        <div className="content">
+          <div className="cards-container">
+            <div className="card-wrapper">
               <Card title="Total Carbon Footprint" content={data.totalCarbonFootprint ? `${data.totalCarbonFootprint.toFixed(2)} kg CO2e` : 'N/A'} />
+            </div>
+            <div className="card-wrapper">
               <Card title="Major Contributors" content={data.majorContributors ? data.majorContributors.map(c => `${c.activity}: ${c.emissions.toFixed(2)} kg CO2e`).join(', ') : 'N/A'} />
-              <Card title="Summary" content={summary || 'N/A'} />
+            </div>
+            <div className="card-wrapper">
               <Card title="Score" content={data.score || 'N/A'} />
             </div>
-            <div className="score-container">
-              <h2>Carbon Footprint Score</h2>
-              <div className="speedometer">
-                <svg viewBox="0 0 200 100" width="200" height="100">
-                  <path d="M10,90 A80,80 0 0,1 190,90" fill="none" stroke="#ddd" strokeWidth="10" />
-                  <path d="M10,90 A80,80 0 0,1 70,20" fill="none" stroke="red" strokeWidth="10" />
-                  <path d="M70,20 A80,80 0 0,1 130,20" fill="none" stroke="orange" strokeWidth="10" />
-                  <path d="M130,20 A80,80 0 0,1 190,90" fill="none" stroke="green" strokeWidth="10" />
-                  <line x1="100" y1="90" x2="100" y2="10" stroke="#000" strokeWidth="3" transform={`rotate(${needleRotation}, 100, 90)`} />
-                  <circle cx="100" cy="90" r="5" fill="#000" />
-                </svg>
-                <div className="score-value">{scoreValue} / 10</div>
-              </div>
-              <div className="comparison-text">
-                <p>{getComparisonText(data.comparison)}</p>
-              </div>
+          </div>
+          <div className="summary-container">
+            <Card title="Summary" content={summary || 'N/A'} />
+          </div>
+          <div className="score-container">
+            <h2>Carbon Footprint Score</h2>
+            <div className="speedometer">
+              <svg viewBox="0 0 200 100" width="200" height="100">
+                <path d="M10,90 A80,80 0 0,1 190,90" fill="none" stroke="#ddd" strokeWidth="10" />
+                <path d="M10,90 A80,80 0 0,1 70,20" fill="none" stroke="red" strokeWidth="10" />
+                <path d="M70,20 A80,80 0 0,1 130,20" fill="none" stroke="orange" strokeWidth="10" />
+                <path d="M130,20 A80,80 0 0,1 190,90" fill="none" stroke="green" strokeWidth="10" />
+                <line x1="100" y1="90" x2="100" y2="10" stroke="#000" strokeWidth="3" transform={`rotate(${needleRotation}, 100, 90)`} />
+                <circle cx="100" cy="90" r="5" fill="#000" />
+              </svg>
+              <div className="score-value">{scoreValue} / 10</div>
+            </div>
+            <div className="comparison-text">
+              <p>{getComparisonText(data.comparison)}</p>
             </div>
           </div>
-        )}
-      </header>
-    </div>
+        </div>
+      )}
+    </header>
+  </div>
+
   );
 }
 
