@@ -37,18 +37,13 @@ function Home() {
             </div>
             <div className="additional-info">
                 <div className="info-box">
-                    <h2>Company Goals</h2>
-                    <p>Reduce carbon emissions by 25% over the next 5 years. Improve ESG scores by 10% annually through sustainable practices and community engagement.</p>
+                    <img src="/goals.png" alt="Company Goals" className="info-image" />
                 </div>
                 <div className="info-box">
-                    <h2>Total Carbon Emissions Last Year</h2>
-                    <p>Our total carbon emissions for last year were 1,500 metric tons, a 5% reduction from the previous year.</p>
-                </div>
-                <div className="info-box">
-                    <h2>ESG Score</h2>
-                    <p>Our current ESG score stands at 75/100, with significant improvements in social and governance metrics over the past year.</p>
+                    <img src="/emissions.png" alt="Carbon Emissions & ESG Score" className="info-image" />
                 </div>
             </div>
+
         </div>
     );
 }

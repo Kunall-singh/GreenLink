@@ -61,15 +61,23 @@
     background-color: #004080;
     padding: 20px;
     border-radius: 10px;
-    width: 30%;
-    margin: 10px 0;
+    flex: 1 1 calc(33.333% - 20px); /* Flex-grow, flex-shrink, and flex-basis */
+    margin: 10px;
     text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for better appearance */
+}
+
+.info-box img {
+    width: 100%; /* Make the image take up the full width of the box */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Match the border radius of the info-box */
 }
 
 .info-box h2 {
     margin-top: 0;
-    font-size: 1.5em;
-}
+    font-size: 1.3em;
+    color: #8BAD79; /* Optional: Change color for better contrast */
+  }
 
 .info-box p {
     margin-bottom: 0;
