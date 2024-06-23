@@ -6,9 +6,14 @@
 
 .navbar-brand {
   font-weight: bold;
-  color: #212529;
+  color: #02831e;
   margin-right: 0px;
   font-size: 1.8rem;
+}
+
+.navbar-logo {
+  height: 45px; /* Adjust the height as needed */
+  width: 170px;  /* Maintain aspect ratio */
 }
 
 .nav-container {
@@ -42,24 +47,24 @@
     border: none;
     padding: 0;
   }
-
 }
+
 .custom-navbar {
-    background-color: #f8f9fa;
-    padding: 10px 20px;
-  }
-  
-  .navbar-nav .nav-item {
-    margin: 0 5px;
-  }
-  
-  .nav-link {
-    border-radius: 30px;
-    padding: 8px 16px !important;
-    transition: background-color 0.3s, color 0.3s;
-  }
-  
-  .nav-link:hover, .nav-link.active {
-    background-color: #212529;
-    color: white !important;
-  }
+  background-color: #f8f9fa;
+  padding: 10px 20px;
+}
+
+.navbar-nav .nav-item {
+  margin: 0 5px;
+}
+
+.nav-link {
+  border-radius: 30px;
+  padding: 8px 16px !important;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-link:hover, .nav-link.active {
+  background-color: #212529;
+  color: white !important;
+}
