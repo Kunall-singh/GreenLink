@@ -41,7 +41,7 @@ function Chat() {
 
   return (
     <div className="chat-container">
-      <h1 className="chat-heading mt-5">Have any doubts about the results? Ask AI✨</h1>
+      <h1 className="chat-heading mt-0">Have any doubts about the results? Ask AI✨</h1>
       <div className="chat-box">
         {messages.map((msg, index) => (
           <div key={index} className={`chat-message ${msg.role === 'user' ? 'user-message' : 'bot-message'}`}>

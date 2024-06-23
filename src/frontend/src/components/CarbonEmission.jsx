@@ -63,7 +63,7 @@ function Carbon() {
       {data === null ? (
         <div>Loading data...</div>
       ) : data === 'Error' ? (
-        <div>Error loading data</div>
+        <div>Loading data...</div>
       ) : (
         <div className="content">
           <div className="cards-container">
