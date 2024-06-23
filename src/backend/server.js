@@ -23,6 +23,10 @@ const emissionFactors = {
   Water: 0.001,
 };
 
+const averageCarbonFootprintMediumCompany = 150000; // Placeholder value
+
+let analyzedData = null; // Store the analyzed data
+
 const analyzeFile = async (filePath) => {
   const results = [];
   return new Promise((resolve, reject) => {
@@ -52,6 +56,8 @@ const analyzeFile = async (filePath) => {
 
           console.log('Major Contributors:', majorContributors);
 
+          const score = getScore(totalCarbonFootprint);
+
           const prompt = `Given the following data on various activities, calculate the total carbon footprint in kg CO2e (kilograms of carbon dioxide equivalent). Each activity has an associated amount and unit. Use the following emission factors for your calculations:
           - Electricity: 0.233 kg CO2e per kWh
           - Natural Gas: 5.3 kg CO2e per therm
@@ -61,7 +67,7 @@ const analyzeFile = async (filePath) => {
           - Waste: 0.03 kg CO2e per pound
           - Water: 0.001 kg CO2e per gallon
           Data: ${JSON.stringify(results)}
-          Based on this data, provide the total carbon footprint and identify the major contributors in 2-3 sentences. Additionally, give a concise summary (2-3 words) indicating whether the total carbon footprint is low, high, or average compared to other medium companies.`;
+          Based on this data, provide the total carbon footprint and identify the major contributors in 2-3 sentences. Additionally, give a concise summary (2-3 words) indicating whether the total carbon footprint is low, high, or average compared to the provided average carbon footprint for medium companies, which is 150,000 kg CO2e per year. Be brief and to the point.`;
 
           const response = await axios.post('https://api.openai.com/v1/chat/completions', {
             model: 'gpt-4',
@@ -81,15 +87,21 @@ const analyzeFile = async (filePath) => {
           }
 
           const summaryLines = content.trim().split('\n');
-          const summary = summaryLines.slice(-1)[0];
+          const detailedSummary = summaryLines.slice(0, -1).join('\n');
+          const conciseSummary = summaryLines.slice(-1)[0];
 
           const result = {
             totalCarbonFootprint: totalCarbonFootprint || 0,
             majorContributors: majorContributors.length ? majorContributors : [{ activity: 'N/A', emissions: 0 }],
-            summary
+            detailedSummary,
+            conciseSummary,
+            comparison: totalCarbonFootprint > averageCarbonFootprintMediumCompany ? 'high' : 'low',
+            score
           };
 
           console.log('Result:', result);
+
+          analyzedData = result; // Store the analyzed data
 
           resolve(result);
         } catch (error) {
@@ -104,7 +116,13 @@ const analyzeFile = async (filePath) => {
   });
 };
 
-// Route to analyze the CSV file
+const getScore = (carbonFootprint) => {
+  if (carbonFootprint < 500) return 'Excellent';
+  if (carbonFootprint < 2000) return 'Good';
+  if (carbonFootprint < 5000) return 'Average';
+  return 'Poor';
+};
+
 app.post('/api/analyze-csv', async (req, res) => {
   const filePath = './uploads/test.csv';
 
@@ -121,9 +139,22 @@ app.post('/api/chat', async (req, res) => {
   const apiKey = process.env.OPENAI_API_KEY;
 
   try {
+    if (!analyzedData) {
+      return res.status(400).send('No analyzed data available. Please analyze a CSV file first.');
+    }
+
+    const prompt = `You are given the following carbon footprint analysis data:
+    Total Carbon Footprint: ${analyzedData.totalCarbonFootprint} kg CO2e
+    Major Contributors: ${analyzedData.majorContributors.map(contributor => `${contributor.activity}: ${contributor.emissions} kg CO2e`).join(', ')}
+    Detailed Summary: ${analyzedData.detailedSummary}
+    Concise Summary: ${analyzedData.conciseSummary}
+    Comparison: ${analyzedData.comparison}
+    Score: ${analyzedData.score}
+    Based on this data, respond to the following question: ${message}`;
+
     const response = await axios.post('https://api.openai.com/v1/chat/completions', {
       model: 'gpt-4',
-      messages: [{ role: 'user', content: message }],
+      messages: [{ role: 'user', content: prompt }],
     }, {
       headers: {
         'Authorization': `Bearer ${apiKey}`,
@@ -131,7 +162,7 @@ app.post('/api/chat', async (req, res) => {
       }
     });
 
-    res.json(response.data);
+    res.json(response.data.choices[0].message);
   } catch (error) {
     console.error(error);
     res.status(500).send('Error communicating with ChatGPT API');
