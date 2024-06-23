@@ -7,6 +7,13 @@
     color: #ffffff;
 }
 
+.marketplace-container h1 {
+    color: #8BAD79; /* New color for the h1 element */
+    text-align: center; /* Optional: Center align the text */
+    font-size: 2.5rem; /* Optional: Set the font size */
+    margin-bottom: 20px; /* Optional: Add some margin below the h1 */
+  }
+
 .search-input {
     width: 100%;
     padding: 10px;

@@ -12,16 +12,6 @@ const port = process.env.PORT || 5001;
 app.use(bodyParser.json());
 app.use(cors());
 
-const emissionFactors = {
-  Electricity: 0.233,
-  'Natural Gas': 5.3,
-  'Car Travel': 0.257,
-  'Public Transit': 0.089,
-  Flights: 0.133,
-  Waste: 0.03,
-  Water: 0.001,
-};
-
 const averageCarbonFootprintMediumCompany = 150000; // Placeholder value
 
 let analyzedData = null; // Store the analyzed data
@@ -38,17 +28,27 @@ const analyzeFile = async (filePath) => {
         console.log('CSV parsing complete:', results);
         try {
           const totalCarbonFootprint = results.reduce((acc, item) => {
-            const factor = emissionFactors[item.Activity];
-            const amount = parseFloat(item.Amount);
-            return acc + (factor * amount);
+            const co2Emissions = parseFloat(item["Unit CO2 emissions (non-biogenic)"]) || 0;
+            const methaneEmissions = parseFloat(item["Unit Methane (CH4) emissions"]) || 0;
+            const nitrousOxideEmissions = parseFloat(item["Unit Nitrous Oxide (N2O) emissions"]) || 0;
+            const biogenicCo2Emissions = parseFloat(item["Unit Biogenic CO2 emissions (metric tons)"]) || 0;
+
+            // Assuming you want to calculate the CO2 equivalent emissions
+            const methaneCO2Equivalent = methaneEmissions * 25; // 25 times more potent than CO2
+            const nitrousOxideCO2Equivalent = nitrousOxideEmissions * 298; // 298 times more potent than CO2
+
+            return acc + co2Emissions + methaneCO2Equivalent + nitrousOxideCO2Equivalent + biogenicCo2Emissions;
           }, 0);
 
           console.log('Total Carbon Footprint:', totalCarbonFootprint);
 
           const majorContributors = results
             .map(item => ({
-              activity: item.Activity,
-              emissions: parseFloat(item.Amount) * emissionFactors[item.Activity]
+              activity: item["Unit Type"],
+              emissions: (parseFloat(item["Unit CO2 emissions (non-biogenic)"]) || 0) +
+                         (parseFloat(item["Unit Methane (CH4) emissions"]) || 0) * 25 +
+                         (parseFloat(item["Unit Nitrous Oxide (N2O) emissions"]) || 0) * 298 +
+                         (parseFloat(item["Unit Biogenic CO2 emissions (metric tons)"]) || 0)
             }))
             .sort((a, b) => b.emissions - a.emissions)
             .slice(0, 3);
@@ -57,16 +57,7 @@ const analyzeFile = async (filePath) => {
 
           const score = getScore(totalCarbonFootprint);
 
-          const prompt = `Given the following data on various activities, calculate the total carbon footprint in kg CO2e (kilograms of carbon dioxide equivalent). Each activity has an associated amount and unit. Use the following emission factors for your calculations:
-          - Electricity: 0.233 kg CO2e per kWh
-          - Natural Gas: 5.3 kg CO2e per therm
-          - Car Travel: 0.257 kg CO2e per mile
-          - Public Transit: 0.089 kg CO2e per mile
-          - Flights: 0.133 kg CO2e per mile
-          - Waste: 0.03 kg CO2e per pound
-          - Water: 0.001 kg CO2e per gallon
-          Data: ${JSON.stringify(results)}
-          Based on this data, provide the total carbon footprint and identify the major contributors in 2-3 sentences. Additionally, give a concise summary (2-3 words) indicating whether the total carbon footprint is low, high, or average compared to the provided average carbon footprint for medium companies, which is 150,000 kg CO2e per year. Be brief and to the point.`;
+          const prompt = `Given the following data on various activities, calculate the total carbon footprint in kg CO2e (kilograms of carbon dioxide equivalent). Each activity has an associated amount and unit. Data: ${JSON.stringify(results)}. Based on this data, provide the total carbon footprint and identify the major contributors in 2-3 sentences. Additionally, give a concise summary (2-3 words) indicating whether the total carbon footprint is low, high, or average compared to the provided average carbon footprint for medium companies, which is 150,000 kg CO2e per year. Be brief and to the point.`;
 
           const response = await axios.post('https://api.openai.com/v1/chat/completions', {
             model: 'gpt-4',

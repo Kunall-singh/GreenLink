@@ -1,8 +1,49 @@
-Activity,Amount,Unit
-Electricity,350,kWh
-Natural Gas,40,therms
-Car Travel,150,miles
-Public Transit,50,miles
-Flights,2000,miles
-Waste,100,pounds
-Water,300,gallons
+Facility Name,City,Unit Type,Unit CO2 emissions (non-biogenic),Unit Methane (CH4) emissions,Unit Nitrous Oxide (N2O) emissions,Unit Biogenic CO2 emissions (metric tons)
+23rd and 3rd,BROOKLYN,Electricity Generator,35801.6,16.5,20.86,0
+23rd and 3rd,BROOKLYN,Energy intensity (per Total Revenues),32636.8,15,17.88,0
+23rd and 3rd,BROOKLYN,Energy consumption from stationary sources,176.7,0,0,0
+23rd and 3rd,BROOKLYN,self-generated electricity from renewable sources,154.7,0,0,0
+23rd and 3rd,BROOKLYN,purchased electricity from renewable sources PPA,23434.5,11,11.92,0
+23rd and 3rd,BROOKLYN,PRH (Process Heater),22437.4,10.5,11.92,0
+23rd and 3rd,BROOKLYN,road & maritime fuel used in Oversize Surface Transportation,84.4,0,0,0
+23rd and 3rd,BROOKLYN,Energy consumption from renewable or low-carbon sources,78.9,0,0,0
+23rd and 3rd,BROOKLYN,Percentage energy from renewable or low-carbon sources,25233.9,13.5,14.9,0
+23rd and 3rd,BROOKLYN,Total Scope 1 + Scope 2 COz emissions,35318.2,18,20.86,0
+23rd and 3rd,BROOKLYN,"Total Scope 1 + Scope 2 CO2 emissions ""market-based"" (location based net of REC*",90.7,0,0,0
+23rd and 3rd,BROOKLYN,percentage renewable electricity,108.4,0,0,0
+23rd and 3rd,BROOKLYN,purchased electricity from renewable sources PPA*,24768.9,11.5,14.9,0
+23rd and 3rd,BROOKLYN,renewable electricity heat,19780.8,9.25,11.92,0
+23rd and 3rd,BROOKLYN,heat & steam,30.2,0,0,0
+23rd and 3rd,BROOKLYN,Total Scope 2 GHG emissions - location based,33,0,0,0
+23rd and 3rd,BROOKLYN,Indirect GHG emissions - Category 11 ,41528.1,19.25,23.84,0
+23rd and 3rd,BROOKLYN,Electricity Generator,28855.3,13.5,14.9,0
+23rd and 3rd,BROOKLYN,Commercial aircraft IEA-SDS SAF uptake*,140.7,0,0,0
+23rd and 3rd,BROOKLYN,PRH (Process Heater),109.4,0,0,0
+23rd and 3rd,BROOKLYN,GHG efficiency for delivered commercial aircraft (as per SBTi-validated target)*,30433.6,14,17.88,0
+23rd and 3rd,BROOKLYN,GHG efficiency for delivered commercial aircraft COz/pax. (as per SBTi-validated target*,22146.9,10.25,11.92,0
+23rd and 3rd,BROOKLYN,"Commercial aircraft - (""no SAF"" scenario)*",32.5,0,0,0
+23rd and 3rd,BROOKLYN,Other products*,32.5,0,0,0
+23rd and 3rd,BROOKLYN,Electricity Generator,34949.2,16.25,20.86,0
+23rd and 3rd,BROOKLYN,CDP Rating (based on previous year disclosure),31723,14.75,17.88,0
+23rd and 3rd,BROOKLYN,PRH (Process Heater),32.4,0,0,0
+23rd and 3rd,BROOKLYN,"Total SO, emissions",24.8,0,0,0
+23rd and 3rd,BROOKLYN,Total NOx emissions,35203.3,16.25,20.86,0
+23rd and 3rd,BROOKLYN,Internal Carbon Pricing,31996,14.75,17.88,0
+23rd and 3rd,BROOKLYN,PRH (Process Heater),53.2,0,0,0
+23rd and 3rd,BROOKLYN,Indirect GHG emissions - Category 6 -,78.8,0,0,0
+23rd and 3rd,BROOKLYN,Business Travel* V,18787,8.75,11.92,0
+23rd and 3rd,BROOKLYN,EN20 Total VOC emissions* V,21720.1,10,11.92,0
+23rd and 3rd,BROOKLYN,"Total SO, emissions",88,0,0,0
+23rd and 3rd,BROOKLYN,Total NOx emissions,86,0,0,0
+23rd and 3rd,BROOKLYN,Internal Carbon Pricing,55517.6,25.75,29.8,0
+23rd and 3rd,BROOKLYN,CDP,46768.4,21.75,26.82,0
+23rd and 3rd,BROOKLYN,self-generated electricity from renewable sources,28.8,0,0,0
+23rd and 3rd,BROOKLYN,purchased electricity from renewable sources PPA,180.3,0,0,0
+23rd and 3rd,BROOKLYN,PRH (Process Heater),32267.8,15,17.88,0
+23rd and 3rd,BROOKLYN,road & maritime fuel used in Oversize Surface Transportation,36466.1,17,20.86,0
+23rd and 3rd,BROOKLYN,PRH (Process Heater),71.3,0,0,0
+23rd and 3rd,BROOKLYN,PRH (Process Heater),109.4,0,0,0
+23rd and 3rd,BROOKLYN,purchased electricity from renewable sources PPA*,44931.1,20.75,23.84,0
+23rd and 3rd,BROOKLYN,renewable electricity heat,55269.1,25.5,29.8,0
+23rd and 3rd,BROOKLYN,heat & steam,133,0,0,0
+23rd and 3rd,BROOKLYN,PRH (Process Heater),156.7,0,0,0
