@@ -4,7 +4,7 @@ import './AppBar.css';
 
 const AppBar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light custom-navbar">
+    <nav className="navbar navbar-expand-lg custom-navbar">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
           <img src="/Logo.jpeg" alt="GreenLink Logo" className="navbar-logo" /> {/* Use the logo image */}

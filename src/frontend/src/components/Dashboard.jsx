@@ -49,19 +49,19 @@ const Dashboard = () => {
           <div className="about-us-container">
             <div className="team-member">
               <img src="/sidd.png" alt="Team Member 1" className="team-image" />
-              <p className="team-description">Person 1 - Description</p>
+              <p className="team-description">Sidd is a sophomore at UMSL. He believes our app enables companies to accurately measure and manage their CO2 emissions, making data-driven decisions to reduce their carbon footprint.</p>
             </div>
             <div className="team-member">
               <img src="/kunal.png" alt="Team Member 2" className="team-image" />
-              <p className="team-description">Person 2 - Description</p>
+              <p className="team-description">Kunal is an upcoming junior at SIUE, bringing his technical expertise and passion for innovation to the team. He emphasizes that our app helps companies track their emissions and identify areas for improvement, positioning them as leaders in sustainability.</p>
             </div>
             <div className="team-member">
               <img src="/mani.png" alt="Team Member 3" className="team-image" />
-              <p className="team-description">Person 3 - Description</p>
+              <p className="team-description">Mani is a recent graduate from UMSL. He advocates that our app provides actionable insights, helping companies implement effective strategies to minimize their carbon footprint.</p>
             </div>
             <div className="team-member">
               <img src="/medhani.png" alt="Team Member 4" className="team-image" />
-              <p className="team-description">Person 4 - Description</p>
+              <p className="team-description">Medhani is an upcoming senior at SLU, dedicated to sustainability and developing innovative app features. She asserts that our app empowers companies to take control of their environmental impact and achieve significant reductions in CO2 emissions.</p>
             </div>
           </div>
         </div>
